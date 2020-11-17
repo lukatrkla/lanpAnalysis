@@ -8,7 +8,7 @@
 
 }
 \source{
-\url{http://www.biostatistics.online/dbPepNeo/index.php}
+\url{http://www.biostatistics.online/dbPepNeo/index.php/}
 }
 \usage{
 lungData

@@ -20,5 +20,5 @@
 #'   interaction}
 #'   \item{wt peptide}{Wild type peptide sequence for the mutation}
 #' }
-#' @source \url{http://www.biostatistics.online/dbPepNeo/index.php}
+#' @source \url{http://www.biostatistics.online/dbPepNeo/index.php/}
 "lungData"

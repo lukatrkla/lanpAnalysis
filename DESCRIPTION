@@ -17,3 +17,5 @@ Imports:
     stringr,
     graphics,
     stats
+Suggests: 
+    testthat
