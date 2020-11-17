@@ -1,11 +1,13 @@
 Package: lanpAnalysis
 Type: Package
-Title: What the Package Does (Title Case)
+Title: lanpAnalysis Analyzes HLA-I-binding Neoantigens Significant for Lung Adenocarcinoma Immunotherapy.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: person("Luka", "Trkla", email = "luka.trkla@mail.utoronto.com", role = c("aut", "cre"))
+Maintainer: Luka Trkla <luka.trkla@mail.utoronto.com>
+Description: lanpAnalysis (Lung Adenocarcinoma Neoantigen Patient Analysis) is 
+    capable of screening and visualizing a patient's genetic peptide data for
+    HLA-I-binding neoantigens that may present which may be significant for 
+    lung adenocarcinoma immunotherapy.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
