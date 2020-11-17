@@ -10,9 +10,6 @@ patient_neoantigen_list(geneSet)
 \item{geneSet}{A data.frame of gene names and associated gene peptide
 sequences.}
 }
-\value{
-A list of indexes
-}
 \description{
 Produces a list of valid indexes into geneSet where a neoantigen target
 for lung cancer was discovered. This serves to effectively remove all the

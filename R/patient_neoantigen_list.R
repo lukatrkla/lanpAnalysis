@@ -8,7 +8,6 @@
 #' @param geneSet A data.frame of gene names and associated gene peptide
 #' sequences.
 #'
-#' @return A list of indexes
 #' @export
 #'
 #' @examples
