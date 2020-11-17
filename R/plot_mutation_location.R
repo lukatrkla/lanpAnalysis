@@ -1,3 +1,21 @@
+#' Visualize the Gene's Peptide Locations/Affinities for Neoantigens
+#'
+#' Produce a graphical output portraying a geneName's neoantigen positions, as
+#' well as predicted percentage ranks for their present mutant neoantigen
+#' peptides (which have HLA alleles affinities information available in the
+#' lung cancer neoantigen database.)
+#'
+#' @param geneName The string name of the gene.
+#' @param seq The string peptide sequence associated with the gene.
+#' @param confidence By default, confidence is set to 0. If it is set to 1,
+#' scatterplot will be coloured according to the confidence level of the
+#' neoantigens.
+#'
+#' @return NULL
+#' @export
+#'
+#' @examples
+#' plot_mutation_location("EPB41L3", "RAMAIYKQSQ...", confidence=0)
 plot_mutation_location <- function(geneName, seq, confidence=0) {
   #produces a list of dataframes from of all rows in geneName where seq is a
   #mutation featured in the lung cancer neoantigen data set.
@@ -26,20 +44,20 @@ plot_mutation_location <- function(geneName, seq, confidence=0) {
   #inserts confidence colouring if requested, with corresponding legend
   if (confidence != 0) {
     midConfidence <- subset(presentMutations, confidence == "MC")
-    lines(midConfidence$position, midConfidence$rank, type="h", lwd = 6,
+    graphics::lines(midConfidence$position, midConfidence$rank, type="h", lwd = 6,
           col="Yellow")
     highConfidence <- subset(presentMutations, confidence == "HC")
-    lines(highConfidence$position, highConfidence$rank, type="h", lwd = 6,
+    graphics::lines(highConfidence$position, highConfidence$rank, type="h", lwd = 6,
           col="Red")
-    legend(nchar(seq) / 10, max(as.numeric(mutationRank)) * 1.25,
+    graphics::legend(nchar(seq) / 10, max(as.numeric(mutationRank)) * 1.25,
            legend=c("High Confidence", "Middle Confidence"),
            fill=c("Red", "Yellow"), bty="n")
   } else {
-    lines(mutationPositions, mutationRank, type="h", lwd = 6)
+    graphics::lines(mutationPositions, mutationRank, type="h", lwd = 6)
   }
   #provides text name of mutation and corresponding HLA allele to plot
   for (i in 1:length(mutationRank)) {
-    text(x=as.numeric(mutationPositions[i]), y=as.numeric(mutationRank[i]),
+    graphics::text(x=as.numeric(mutationPositions[i]), y=as.numeric(mutationRank[i]),
          pos=2, srt=90, adj=c(0,0), label=paste0(mutationHLA[i], " : ",
                                                  mutationNames[i]))
   }

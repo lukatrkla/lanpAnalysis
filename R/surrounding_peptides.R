@@ -1,4 +1,24 @@
-surrounding_peptides <- function(geneName, seq, sides = 3) {
+#' The Surrounding Peptide Function
+#'
+#' Often, the immediate peptides to a mutation are relevant for analyzing a
+#' neoantigen. surrounding_peptides finds all neoantigens within seq for
+#' geneName that are in the lung cancer database, and returns a dataframe
+#' containing the strings for each of these found neoantigens with sides number
+#' of flanking peptides in the peptide sequence (in lower case), and the
+#' peptides' position.
+#'
+#' @param geneName The string name of the gene.
+#' @param seq The string peptide sequence associated with the gene.
+#' @param sides The number of peptides you wish to view flanking the ends of
+#' seq. By default this is 3.
+#'
+#' @return string
+#' @export
+#'
+#' @examples
+#' surrounding_peptides("MAGI2", "GGMNLRIAK...", sides=4)
+#' "(10)rimkNETPVAVLTImiga(26)"
+surrounding_peptides <- function(geneName, seq, sides=3) {
   mutationLocation <- mutation_positions(geneName, seq)
   # sort the list of peptides from first to least
   mutationLocation <- mutationLocation[order(mutationLocation$position),]
@@ -10,7 +30,7 @@ surrounding_peptides <- function(geneName, seq, sides = 3) {
     #the list is non-empty
     counter <- 1
     for (i in 1:nrow(mutationLocation)) {
-      if (mutation_positions(geneName, mut)[[1]][i] >= counter) {
+      if (mutation_positions(geneName, seq)[[1]][i] >= counter) {
         leftBoundary <- mutation_positions(geneName, seq)[[1]][i] - sides
         # testing for out of bounds
         if (leftBoundary < 1) {

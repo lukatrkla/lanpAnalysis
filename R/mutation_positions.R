@@ -1,3 +1,17 @@
+#' The Mutation Position Data.Frame Function
+#'
+#' Analyzes seq for mutations in the lung cancer neoantigen database, for
+#' neoantigens for pertaining to geneName, and returns a data.frame with the
+#' information pertaining to where each neoantigen mutation was positioned in
+#' seq, as well as where the mutation's length.
+#' @param geneName The string name of the gene.
+#' @param seq The string peptide sequence associated with the gene.
+#'
+#' @return data.frame
+#' @export
+#'
+#' @examples
+#' mutation_positions("ADGRA3", "TCAKSVTCTY...")
 mutation_positions <- function(geneName, seq) {
   #produces a list of neoantigen data from lungData for geneName
   geneAppearances <- (1:nrow(lungData))[lungData[,2] == geneName]

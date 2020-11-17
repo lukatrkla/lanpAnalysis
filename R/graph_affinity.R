@@ -1,3 +1,22 @@
+#' Visualize a Gene's Mutant Peptide - HLA Allele Affinities
+#'
+#' Barplot a gene's predicted percentage ranks for its present mutant neoantigen
+#' peptides (which have HLA alleles affinities information available in the lung
+#' cancer neoantigen database.)
+#'
+#' @param geneName The string name of the gene.
+#' @param seq The string peptide sequence associated with the gene.
+#' @param colorFlag By Default, colorFlag is set to 0. If it is set to 1, all
+#' subsequent affinity barplots will be coloured according to binding strength
+#' between the mutation and the HLA-Allele. If it is set to 2, all subsequent
+#' affinity barplots will be coloured according to confidence level between
+#' mutation and the HLA-Allele.
+#'
+#' @return NULL
+#' @export
+#'
+#' @examples
+#' graph_affinity("TP53", "FSDLWC....", 1)
 graph_affinity <- function(geneName, seq, colorFlag=0) {
   #produces list of mutations found in geneName that also reside in the lung
   #cancer database
@@ -7,7 +26,7 @@ graph_affinity <- function(geneName, seq, colorFlag=0) {
   #database
   if (is.na(mutationAffinity[1])) {
     #return an empty plot
-    barplot(c(1, 3, 5), col = NA, border = NA, main=geneName,
+    graphics::barplot(c(1, 3, 5), col = NA, border = NA, main=geneName,
             ylab="log(HLA : Mutation Affinity)")
     return(NULL)
   }
@@ -39,15 +58,15 @@ graph_affinity <- function(geneName, seq, colorFlag=0) {
     }
   }
   #plots the data with the appropriate colorFlag
-  barplot(data2[,1],names.arg=data2[,2], col=colorList, log="y", main=geneName,
+  graphics::barplot(data2[,1],names.arg=data2[,2], col=colorList, log="y", main=geneName,
           ylab="log(HLA : Mutation Affinity)")
   #adds legend if confidence or binding data is requested
   if (colorFlag == 1) {
-    legend("topright", legend = c("Nonbinding", "Weak Binding",
+    graphics::legend("topright", legend = c("Nonbinding", "Weak Binding",
                                   "Strong Binding"),
            fill = c("#7EB6FF", "#5190ED", "#1B3F8B"))
   } else if (colorFlag == 2) {
-    legend("topright", legend = c("Middle Confidence", "High Confidence"),
+    graphics::legend("topright", legend = c("Middle Confidence", "High Confidence"),
            fill = c("Yellow", "Red"))
   }
   return(NULL)

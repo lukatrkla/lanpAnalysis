@@ -1,3 +1,18 @@
+#' Builds a Neoantigen Information Data.Frame Function
+#'
+#' Analyzes seq for mutations in the lung cancer neoantigen database for
+#' neoantigens for pertaining to geneName, and returns a data.frame with the
+#' information pertaining to each neoantigen discovered, as well as the
+#' position in seq where the mutation was found.
+#'
+#' @param geneName The string name of the gene.
+#' @param seq The string peptide sequence associated with the gene.
+#'
+#' @return data.frame
+#' @export
+#'
+#' @examples
+#' mutation_gene_data("KRAS", "AKSVTCTY...")
 mutation_gene_data <- function(geneName, seq) {
   #produces a list of neoantigen data from lungData for geneName
   geneAppearances <- (1:nrow(lungData))[lungData[,2] == geneName]
