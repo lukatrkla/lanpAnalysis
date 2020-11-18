@@ -34,7 +34,7 @@ library("lanpAnalysis")
 
 ## Overview
 
-ls("package:<PackageName>")
+ls("package:lanpAnalysis")
 
 The full information related to the functions in lanpAnalysis are provided in
 the function's man pages, all of which are open when typing lanpAnalysis::...
