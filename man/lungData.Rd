@@ -5,7 +5,7 @@
 \alias{lungData}
 \title{Known Lung Cancer Related Neoantigen Database}
 \format{
-
+A data frame with 179 rows and 13 variables:
 }
 \source{
 \url{http://www.biostatistics.online/dbPepNeo/index.php}
