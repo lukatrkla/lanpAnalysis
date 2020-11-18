@@ -36,8 +36,8 @@ You can install the released version of lanpAnalysis from
 
 ``` r
 require("devtools")
-devtools::install_github("lukatrkla/LanpAnalysis", build_vignettes = TRUE)
-library("<PackageName>")
+devtools::install_github("lukatrkla/lanpAnalysis", build_vignettes = TRUE)
+library("lanpAnalysis")
 ```
 The ultimate aim of the package is to provide a graphical output to the
 patient's neoantigens that were discovered in their genes. Below are information
@@ -56,7 +56,7 @@ seq	- The string peptide sequence associated with the gene. <br>
 colorFlag	- By Default, colorFlag is set to 0. If it is set to 1, all subsequent affinity barplots will be coloured according to binding strength between the mutation and the HLA-Allele. If it is set to 2, all subsequent affinity barplots will be coloured according to confidence level between mutation and the HLA-Allele. <br>
 Try using this on your pc:
 ``` r
-graph_affinity_solution, graph_affinity("TP53", tp53mutated3times, 1)
+graph_affinity("TP53", tp53mutated3times, 1)
 ```
 tp53mutated3times is included in the package; depending on how you've loaded the
 package, make sure the syntax is correct when calling the function. This is true
