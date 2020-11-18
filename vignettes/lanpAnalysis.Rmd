@@ -1,0 +1,160 @@
+---
+title: "lanpAnalysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{lanpAnalysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(lanpAnalysis)
+```
+
+## Overview
+
+lanpAnalysis: (Lung Adenocarcinoma Neoantigen Patient Analysis) is an R package 
+that aims to analyze patient peptide data, for probable HLA-I-binding neoantigens
+that may be significant for lung adenocarcinoma immunotherapy. In recent years,
+neoantigens have been be an immunotherapy target, as they may produce the 
+rejection of tumours. lanpAnalysis streamlines this process by indexing and 
+analyzing a patient's genes, and returns cruicial information on the presence
+of these neoantigens, their relative affinities to HLA Alleles, and their 
+location within the gene. 
+
+## Installation
+
+You can install the released version of lanpAnalysis from
+[GitHub](https://github.com/) with:
+
+``` r
+require("devtools")
+devtools::install_github("lukatrkla/LanpAnalysis", build_vignettes = TRUE)
+library("<PackageName>")
+```
+The ultimate aim of the package is to provide a graphical output to the
+patient's neoantigens that were discovered in their genes. Below are information
+pertaining to the 8 functions included in this package, as well as additional
+dataSets for testing and learning.
+
+### graph_affinity
+``` r
+graph_affinity(geneName, seq, colorFlag = 0)
+```
+This function Barplots a gene's predicted percentage ranks for its present 
+mutant neoantigen peptides (which have HLA alleles affinities information available in the lung cancer neoantigen database.)<br><br>
+
+geneName - The string name of the gene. <br>
+seq	- The string peptide sequence associated with the gene. <br>
+colorFlag	- By Default, colorFlag is set to 0. If it is set to 1, all subsequent affinity barplots will be coloured according to binding strength between the mutation and the HLA-Allele. If it is set to 2, all subsequent affinity barplots will be coloured according to confidence level between mutation and the HLA-Allele. <br>
+Try using this on your pc:
+``` r
+graph_affinity_solution, graph_affinity("TP53", tp53mutated3times, 1)
+```
+tp53mutated3times is included in the package; depending on how you've loaded the
+package, make sure the syntax is correct when calling the function. This is true
+for all examples below that I encourage you to try.
+
+### mutation_gene_data
+``` r
+mutation_gene_data(geneName, seq)
+```
+This function analyzes seq for mutations in the lung cancer neoantigen database,
+for neoantigens pertaining to geneName. It returns a data.frame with the 
+information pertaining to each neoantigen discovered, as well as the position 
+in seq where the mutation was found. <br>
+geneName - The string name of the gene. <br>
+seq	- The string peptide sequence associated with the gene. <br>
+Try using this on your pc:
+``` r
+mutation_gene_data("TP53", tp53mutated3times)
+```
+### mutation_positions
+``` r
+mutation_positions(geneName, seq)
+```
+This function analyzes seq for mutations in the lung cancer neoantigen database,
+for neoantigens for pertaining to geneName, and returns a data.frame with the 
+information pertaining to where each neoantigen mutation was positioned in seq,
+as well as where the mutation's length. <br>
+geneName - The string name of the gene. <br>
+seq	- The string peptide sequence associated with the gene.<br>
+Try using this on your pc:
+``` r
+mutation_positions("TP53", tp53mutated3times)
+```
+### patient_affinity_visualizer
+``` r
+mutation_positions(geneName, seq)
+```
+This function barplots a set of gene's predicted percentage ranks, for their 
+present mutant neoantigen peptides (which have HLA alleles affinities 
+information available in the lung cancer neoantigen database dbPepNeo.) <br>
+geneSet	- A data.frame of gene names and associated gene peptide sequence. <br>
+colNum - Number of Columns the resulting set of barplots will have. <br>
+colorFlag	- By Default, colorFlag is set to 0. If it is set to 1, all subsequent affinity barplots will be coloured according to binding strength between the mutation and the HLA-Allele. If it is set to 2, all subsequent affinity barplots will be coloured according to confidence level between mutation and the HLA-Allele. <br>
+Try using this on your pc:
+``` r
+patient_affinity_visualizer(testingGeneSet, colNum=1, colorFlag=0)
+```
+### patient_location_visualizer
+``` r
+patient_affinity_visualizer(geneSet, colNum = 1, colorFlag = 0)
+```
+This function produces barplots for a set of gene's predicted percentage ranks,
+for their present mutant neoantigen peptides (which have HLA alleles affinities
+information available in the lung cancer neoantigen database dbPepNeo.) <br>
+geneSet	- A data.frame of gene names and associated gene peptide sequence. <br>
+colNum - Number of Columns the resulting set of barplots will have. <br>
+colorFlag	- By Default, colorFlag is set to 0. If it is set to 1, all subsequent affinity barplots will be coloured according to binding strength between the mutation and the HLA-Allele. If it is set to 2, all subsequent affinity barplots will be coloured according to confidence level between mutation and the HLA-Allele. <br>
+Try using this on your pc:
+``` r
+patient_location_visualizer(testingGeneSet, colNum=1, confidence=0)
+```
+### patient_neoantigen_list
+``` r
+patient_neoantigen_list(geneSet)
+```
+This function produces a list of valid indexes into geneSet where a neoantigen 
+target for lung cancer was discovered. This serves to effectively remove all the
+genes from query that do not have neoantigen target information for lung cancer available. <br>
+geneSet	- A data.frame of gene names and associated gene peptide sequences.<br>
+Try using this on your pc:
+``` r
+patient_neoantigen_list(testingGeneSet)
+```
+### plot_mutation_location
+``` r
+plot_mutation_location(geneName, seq, confidence = 0)
+```
+This function produces a graphical output portraying a geneName's neoantigen positions, as well as predicted percentage ranks for their present mutant neoantigen peptides (which have HLA alleles affinities information available in the lung cancer neoantigen database.) <br>
+geneName - The string name of the gene. <br>
+seq	- The string peptide sequence associated with the gene. <br>
+confidence - By default, confidence is set to 0. If it is set to 1, scatterplot will be coloured according to the confidence level of the neoantigens.
+Try using this on your pc:
+``` r
+plot_mutation_location("TP53", tp53mutated3times, confidence = 1)
+```
+### surrounding_peptides
+``` r
+surrounding_peptides(geneName, seq, sides = 3)
+```
+Often, the immediate peptides to a mutation are relevant for analyzing a neoantigen. surrounding_peptides finds all neoantigens within seq for geneName that are in the lung cancer database, and returns a dataframe containing the strings for each of these found neoantigens with sides number of flanking peptides in the peptide sequence (in lower case), and the peptides' position.<br>
+geneName - The string name of the gene.<br>
+seq	- The string peptide sequence associated with the gene.<br>
+sides	- The number of peptides you wish to view flanking the ends of seq. By default this is 3.<br>
+Try using this on your pc:
+``` r
+plot_mutation_location("TP53", tp53mutated3times, confidence = 1)
+```
+
+### lungData
+LungData is a dataset modified from dbPepNeo [http://www.biostatistics.online/dbPepNeo/index.php].
+It includes neoantigen data relevant to non-small lung Cancer.

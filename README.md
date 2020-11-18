@@ -28,7 +28,7 @@ You can install the released version of lanpAnalysis from
 
 ``` r
 require("devtools")
-devtools::install_github("<GitHubUserName>/<PackageName>", build_vignettes = TRUE)
+devtools::install_github("lukatrkla/LanpAnalysis", build_vignettes = TRUE)
 library("<PackageName>")
 ```
 
