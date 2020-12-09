@@ -106,7 +106,7 @@ patient_affinity_visualizer(testingGeneSet, colNum=1, colorFlag=0)
 ```
 ### patient_location_visualizer
 ``` r
-patient_affinity_visualizer(geneSet, colNum = 1, colorFlag = 0)
+patient_location_visualizer(testingGeneSet, colNum=1, confidence=0)
 ```
 This function produces barplots for a set of gene's predicted percentage ranks,
 for their present mutant neoantigen peptides (which have HLA alleles affinities
