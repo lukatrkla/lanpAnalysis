@@ -158,3 +158,9 @@ plot_mutation_location("TP53", tp53mutated3times, confidence = 1)
 ### lungData
 LungData is a dataset modified from dbPepNeo [http://www.biostatistics.online/dbPepNeo/index.php].
 It includes neoantigen data relevant to non-small lung Cancer.
+
+### SessionInfo
+As per feed back given to me, I was encouraged to include sessionInfo into my vignette.
+``` r
+sessionInfo("lanpAnalysis")
+```
