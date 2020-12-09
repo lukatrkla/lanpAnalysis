@@ -1,0 +1,12 @@
+citHeader("To cite lanpAnalysis in publications use:")
+
+citEntry(
+  entry    = "unpublished",
+  title    = "lanpAnalysis",
+  author   = "Luka Trkla",
+  note     = "unpublished",
+  year     = "2020",
+  textVersion = paste(
+
+  )
+)
