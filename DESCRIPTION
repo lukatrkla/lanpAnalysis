@@ -16,7 +16,8 @@ RoxygenNote: 7.1.1
 Imports: 
     stringr,
     graphics,
-    stats
+    stats,
+    shiny
 Suggests: 
     testthat,
     knitr,

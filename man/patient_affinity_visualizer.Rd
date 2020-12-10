@@ -27,5 +27,5 @@ neoantigen peptides (which have HLA alleles affinities information available
 in the lung cancer neoantigen database.)
 }
 \examples{
-patient_affinity_visualizer(testingGeneSet, colNum=1, colorFlag=2)
+NULL
 }

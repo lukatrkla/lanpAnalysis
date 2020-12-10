@@ -26,5 +26,5 @@ present mutant neoantigen peptides (which have HLA alleles affinities
 information available in the lung cancer neoantigen database.)
 }
 \examples{
-patient_location_visualizer(testingGeneSet, colNum=1, confidence=0)
+NULL
 }

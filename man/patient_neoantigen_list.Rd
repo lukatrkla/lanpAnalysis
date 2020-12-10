@@ -17,5 +17,5 @@ genes from query that do not have neoantigen target information for lung
 cancer available.
 }
 \examples{
-patient_neoantigen_list(testingGeneSet)
+NULL
 }
