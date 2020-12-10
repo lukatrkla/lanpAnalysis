@@ -22,17 +22,17 @@ of these neoantigens, their relative affinities to HLA Alleles, and their
 location within the gene. 
 
 ## Changes Made Since Last Review:
-*Checked concerns with not being able to graph with graph_affinity(). In a new pc I installed the package and was able to get a graph output with no issue. Try "graph_affinity("TP53", tp53mutated3times, 1)". A graph should be output on your plots, and NULL status should be returned (suggesting intended behaviour was observed.)
-*Removed sysdata.rda from R subdirectory.
-*Provided sessionInfo() at the end of vignette.
-*Added CITATION for the package.
-*Changed ls("package:") to properly display ls("package:lanpAnalysis")
-*Added data(package = "lanpAnalysis") command.
-*Checked to what extent I can change variable names to camelCaseStyle. Prior, I used camelCaseStyle and Snakecase. When I changed the variable names to camelCaseStyle, a crash was consistently induced in my package. I think this is due to a variable somewhere beyond the R subdirectory not being changed when prompted to. For the sake of preserving the functionality of the package, I kept both camelCaseStyle and Snakecase. Going forward though, I agree that I should solely use camelCaseStyle. In aspects of my code that were not already dependent on the R files using their old code (for example, shinyApp, I used the proper naming convention as much as I could.
-*Completed documentation for functions as concerns were raised about this. Mainly I added function examples that were not present.
-*Added shiny R package as import in DESCRIPTION.
-*Add R function called runLanpAnalysis.R for running the shiny Applet.
-*Documented runLanpAnalysis.R so the user may know what it does.
+* Checked concerns with not being able to graph with graph_affinity(). In a new pc I installed the package and was able to get a graph output with no issue. Try "graph_affinity("TP53", tp53mutated3times, 1)". A graph should be output on your plots, and NULL status should be returned (suggesting intended behaviour was observed.)
+* Removed sysdata.rda from R subdirectory.
+* Provided sessionInfo() at the end of vignette.
+* Added CITATION for the package.
+* Changed ls("package:") to properly display ls("package:lanpAnalysis")
+* Added data(package = "lanpAnalysis") command.
+* Checked to what extent I can change variable names to camelCaseStyle. Prior, I used camelCaseStyle and Snakecase. When I changed the variable names to camelCaseStyle, a crash was consistently induced in my package. I think this is due to a variable somewhere beyond the R subdirectory not being changed when prompted to. For the sake of preserving the functionality of the package, I kept both camelCaseStyle and Snakecase. Going forward though, I agree that I should solely use camelCaseStyle. In aspects of my code that were not already dependent on the R files using their old code (for example, shinyApp, I used the proper naming convention as much as I could.
+* Completed documentation for functions as concerns were raised about this. Mainly I added function examples that were not present.
+* Added shiny R package as import in DESCRIPTION.
+* Add R function called runLanpAnalysis.R for running the shiny Applet.
+* Documented runLanpAnalysis.R so the user may know what it does.
 
 ## Installation
 
